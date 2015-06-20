@@ -1,0 +1,68 @@
+			body{
+				margin-top: 50px;
+				margin: 30px;
+		
+			
+			}
+
+			#container{
+				margin:auto;
+				margin-top: 80px;
+				border-bottom: none;
+				background-color: white;
+			
+			
+			}
+			
+			h1{
+				margin:auto;
+				text-align: center;
+				margin-top: 80px;
+				margin-bottom: 80px;
+				padding-bottom: 15px;
+				width: 800px;
+			
+			}
+			
+			#p0,#p1,#p2,#p3{
+				margin:auto;
+				margin-top: 80px;
+				margin-bottom: 80px;
+				padding-bottom: 15px;
+				width: 800px;
+				line-height: 30px;
+				font-size: small;
+			
+			}
+			
+			#graph1,#graph2,#graph3{
+				
+				margin: auto;
+				text-align: center;
+				padding-top: 50px;
+				border-bottom: none;
+				background-color: #faf9ef;
+				position: relative;
+				padding-bottom: 20px;
+			
+			}
+
+			#tooltip{
+				position: absolute;
+
+				background-color: rgba(255, 255, 255, 0.75);
+				pointer-events: none;
+				padding: 10px;
+				-webkit-border-radius: 10px;
+				font-size: 12px;
+			
+			}
+			#tooltip.hidden{
+				display: none;			
+			
+			}
+
+			#tooltip p{
+				font-size: 12px;
+			
+			}
