@@ -86,7 +86,6 @@
 	</body>
 	
 	<script>
-
 				var xScale_degree = d3.scale.linear()
 									.domain([0, 52])
 									.range([182, 542]);
@@ -102,7 +101,6 @@
 				var xScale_53 = d3.scale.ordinal()
 									.domain(d3.range(53))
 									.rangeRoundBands([0, chart1_Radius*2*Math.PI], 0.3);
-
 				var yScale = d3.scale.linear()
 									.domain([0, 26])
 									.range([0, 300]);		
@@ -518,8 +516,6 @@
 		
 		
 //2번그래프		
-
-
 		var xScale_line = d3.scale.ordinal()
 								  .domain(d3.range(132))
 								  .rangeRoundBands([0, chart2_Width], 0);
@@ -527,18 +523,14 @@
 		var xScale_line1 = d3.scale.ordinal()
 								  .domain(d3.range(36))
 								  .rangeRoundBands([60.5, 1239.5], 0);
-
 		var yScale_line = d3.scale.linear()
 								  .domain([0, d3.max(chart2_naver_monthData_sum, function(d){ return d; })])
 								  .range([0, chart2_Height-190]);
 		
 		var coordFunction = function(xscale, data1, data2){
-
 			for(var i = 0; i < chart2_naver_monthData_sum.length; i++){
-
 					var coord = {x: xscale(i), y: chart2_Height - yScale_line(data1[i]) - 100}
 					chart2_lineData.push(coord);
-
 					var coord2 = {x: xscale(i), y: chart2_Height - yScale_line(data2[i]) - 100}
 					chart2_lineData2.push(coord2);
 			}
@@ -622,29 +614,26 @@
 		
 				.on('mouseover', function(d){
 					
-					var rect = document.querySelector('.svg1').getBoundingClientRect();
+					var rect = graph2.getBoundingClientRect();
 					var coordi = [0, 0];
-					coordi = d3.mouse(this);					
-					var x = coordi[0];
-					var y = coordi[1];					
-
-					var x1 = parseFloat(window.scrollX + rect.left + x-13);
-					var y1 = parseFloat(window.scrollY + rect.top + y-50);				
+					
+					coordi = d3.mouse(this);
+					
+					var x = coordi[0]+218;
+					var y = coordi[1];
 					
 					d3.select('#tooltip')
-						.style('left', x1 + 'px')
-						.style('top', y1 + 'px')
+						.style('left', x + 'px')
+						.style('top', y + 'px')
 						.select('#value')
 						.text(d);
 					
 					d3.select('#tooltip').classed('hidden', false);
-
 				})
 		
 				.on('mouseout', function(d){					
 					
 					d3.select('#tooltip').classed('hidden', true);
-
 				});
 		
 		var circle2 = svg1.selectAll('circle.circle2').data(chart2_tistory_monthData).enter().append('circle')
@@ -658,29 +647,25 @@
 				.on('mouseover', function(d){
 					
 					
-					var rect = document.querySelector('.svg1').getBoundingClientRect();
 					var coordi = [0, 0];
-					coordi = d3.mouse(this);					
-					var x = coordi[0];
-					var y = coordi[1];					
-
-					var x1 = parseFloat(window.scrollX + rect.left + x-13);
-					var y1 = parseFloat(window.scrollY + rect.top + y-50);				
+					
+					coordi = d3.mouse(this);
+					
+					var x = coordi[0]+218;
+					var y = coordi[1];
 					
 					d3.select('#tooltip')
-						.style('left', x1 + 'px')
-						.style('top', y1 + 'px')
+						.style('left', x + 'px')
+						.style('top', y + 'px')
 						.select('#value')
 						.text(d);
 					
 					d3.select('#tooltip').classed('hidden', false);
-
 				})
 		
 				.on('mouseout', function(d){					
 					
 					d3.select('#tooltip').classed('hidden', true);
-
 				});
 		
 		var period_rect = svg1.selectAll('rect.rect3').data(period_data).enter().append('rect')
@@ -714,7 +699,6 @@
 								  .attr('text-anchor', 'end')
 								  .attr('fill', function(d){ return d[3]; });
 		
-
 		
 	
 		
@@ -731,8 +715,6 @@
 		var chart3_Width = 900;
 		var chart3_Height= 600;
 		var radius = 220;
-
-
 		var arc = d3.svg.arc()
 			 .innerRadius(radius-70)
 			 .outerRadius(radius);
@@ -744,13 +726,10 @@
 		var arc3 = d3.svg.arc()
 			 .innerRadius(radius-70)
 			 .outerRadius(radius+200);
-
 		var pie = d3.layout.pie()
 						.padAngle(.02)
 						.value(function(d){ return d.num });
-
 		var color = d3.scale.category10();
-
 		var svg3 = d3.select("#graph3").append("svg")
 			 .attr("width", chart3_Width)
 			 .attr("height", chart3_Height);
@@ -843,7 +822,6 @@
 		
 				  	});		
 		
-
 		arcs.append("text")
 			    .attr("transform", function(d) {
 			    	return "translate(" + arc3.centroid(d)[0] + ',' + (arc3.centroid(d)[1]+5) + ")";
@@ -862,12 +840,9 @@
 				.attr("stroke-width", 1)
 				.attr('stroke', 'rgba(99, 100, 91, 0.2)');
 		
-
      
 		
 		</script>
 	
 	
 </html>
-
-
