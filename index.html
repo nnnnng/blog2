@@ -623,17 +623,18 @@
 		
 				.on('mouseover', function(d){
 					
-					var rect = graph2.getBoundingClientRect();
+					var rect = document.querySelector('.svg1').getBoundingClientRect();
 					var coordi = [0, 0];
-					
-					coordi = d3.mouse(this);
-					
-					var x = coordi[0]+218;
-					var y = coordi[1];
+					coordi = d3.mouse(this);					
+					var x = coordi[0];
+					var y = coordi[1];					
+
+					var x1 = parseFloat(window.scrollX + rect.left + x-13);
+					var y1 = parseFloat(window.scrollY + rect.top + y-50);				
 					
 					d3.select('#tooltip')
-						.style('left', x + 'px')
-						.style('top', y + 'px')
+						.style('left', x1 + 'px')
+						.style('top', y1 + 'px')
 						.select('#value')
 						.text(d);
 					
@@ -641,11 +642,7 @@
 
 				})
 		
-				.on('mouseout', function(d){					
-					
-					d3.select('#tooltip').classed('hidden', true);
-
-				});
+				;
 		
 		var circle2 = svg1.selectAll('circle.circle2').data(chart2_tistory_monthData).enter().append('circle')
 							 .attr('class', 'circle2')
@@ -658,16 +655,18 @@
 				.on('mouseover', function(d){
 					
 					
+					var rect = document.querySelector('.svg1').getBoundingClientRect();
 					var coordi = [0, 0];
-					
-					coordi = d3.mouse(this);
-					
-					var x = coordi[0]+218;
-					var y = coordi[1];
+					coordi = d3.mouse(this);					
+					var x = coordi[0];
+					var y = coordi[1];					
+
+					var x1 = parseFloat(window.scrollX + rect.left + x-13);
+					var y1 = parseFloat(window.scrollY + rect.top + y-50);				
 					
 					d3.select('#tooltip')
-						.style('left', x + 'px')
-						.style('top', y + 'px')
+						.style('left', x1 + 'px')
+						.style('top', y1 + 'px')
 						.select('#value')
 						.text(d);
 					
