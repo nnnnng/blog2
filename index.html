@@ -642,7 +642,11 @@
 
 				})
 		
-				;
+				.on('mouseout', function(d){					
+					
+					d3.select('#tooltip').classed('hidden', true);
+
+				});
 		
 		var circle2 = svg1.selectAll('circle.circle2').data(chart2_tistory_monthData).enter().append('circle')
 							 .attr('class', 'circle2')
